@@ -107,10 +107,10 @@ order by TotalDeathCount desc
 -- GLOBAL NUMBERS
 
 -- Daily Global COVID Cases
-SELECT date, SUM(new_cases) as TotalCases, SUM(cast(total_deaths as int)) as TotalDeaths
-FROM CovidDeaths
-WHERE Continent is not null
-GROUP BY date
+Select date, SUM(new_cases) as TotalCases, SUM(cast(total_deaths as int)) as TotalDeaths
+From CovidDeaths
+Where Continent is not null
+Group by date
 Order by date desc
 
 -- Checking United States Numbers
@@ -229,10 +229,10 @@ From CovidDeaths dea
 Join CovidVaccinations vac
 	On dea.location = vac.location
 	and dea.date = vac.date
-where dea.continent is not null 
+Where dea.continent is not null 
 
-select *, (RollingPeopleVaccinated/population)*100 as PercentPopulationVaccinated
-from PercentPopulationVaccinated
+Select *, (RollingPeopleVaccinated/population)*100 as PercentPopulationVaccinated
+From PercentPopulationVaccinated
 
 --Case
 SELECT date, location, total_cases,new_cases, total_deaths, new_deaths,
